@@ -1,6 +1,7 @@
 # SwiftStats
 
-[![CI](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-stats/ci.yml?label=CI&branch=main)](https://github.com/CorvidLabs/swift-stats/actions/workflows/ci.yml)
+[![macOS](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-stats/macOS.yml?label=macOS&branch=main)](https://github.com/CorvidLabs/swift-stats/actions/workflows/macOS.yml)
+[![Ubuntu](https://img.shields.io/github/actions/workflow/status/CorvidLabs/swift-stats/ubuntu.yml?label=Ubuntu&branch=main)](https://github.com/CorvidLabs/swift-stats/actions/workflows/ubuntu.yml)
 [![License](https://img.shields.io/github/license/CorvidLabs/swift-stats)](https://github.com/CorvidLabs/swift-stats/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-stats)](https://github.com/CorvidLabs/swift-stats/releases)
 
