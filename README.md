@@ -49,10 +49,10 @@ Each distribution includes:
 ## Requirements
 
 - Swift 6.0+
-- iOS 15.0+
-- macOS 12.0+
-- tvOS 15.0+
-- watchOS 8.0+
+- iOS 16.0+
+- macOS 13.0+
+- tvOS 16.0+
+- watchOS 9.0+
 - visionOS 1.0+
 
 ## Installation
@@ -65,6 +65,17 @@ Add the following to your `Package.swift` file:
 dependencies: [
     .package(url: "https://github.com/CorvidLabs/swift-stats.git", from: "0.1.0")
 ]
+```
+
+Then add the target dependency:
+
+```swift
+.target(
+    name: "YourTarget",
+    dependencies: [
+        .product(name: "Stats", package: "swift-stats")
+    ]
+)
 ```
 
 ## Usage
