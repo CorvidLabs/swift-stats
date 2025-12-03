@@ -58,10 +58,13 @@ public struct Statistics: Sendable {
 }
 
 extension Statistics {
-    /// Calculate descriptive statistics from a collection of values
-    /// - Parameter values: The collection of numeric values
-    /// - Returns: A Statistics instance containing all descriptive measures
-    /// - Throws: StatsError if the collection is empty
+    /**
+     Calculate descriptive statistics from a collection of values
+
+     - Parameter values: The collection of numeric values
+     - Returns: A Statistics instance containing all descriptive measures
+     - Throws: StatsError if the collection is empty
+     */
     public static func calculate<C: Collection>(
         from values: C
     ) throws -> Statistics where C.Element: BinaryFloatingPoint {
@@ -134,9 +137,12 @@ extension Statistics {
 // MARK: - Convenience Methods
 
 extension Collection where Element: BinaryFloatingPoint {
-    /// Calculate the arithmetic mean of the collection
-    /// - Returns: The mean value
-    /// - Throws: StatsError.emptyCollection if the collection is empty
+    /**
+     Calculate the arithmetic mean of the collection
+
+     - Returns: The mean value
+     - Throws: StatsError.emptyCollection if the collection is empty
+     */
     public func mean() throws -> Double {
         guard !isEmpty else {
             throw StatsError.emptyCollection
@@ -145,9 +151,12 @@ extension Collection where Element: BinaryFloatingPoint {
         return sum / Double(count)
     }
 
-    /// Calculate the median of the collection
-    /// - Returns: The median value
-    /// - Throws: StatsError.emptyCollection if the collection is empty
+    /**
+     Calculate the median of the collection
+
+     - Returns: The median value
+     - Throws: StatsError.emptyCollection if the collection is empty
+     */
     public func median() throws -> Double {
         guard !isEmpty else {
             throw StatsError.emptyCollection
@@ -161,9 +170,12 @@ extension Collection where Element: BinaryFloatingPoint {
         }
     }
 
-    /// Calculate the mode(s) of the collection
-    /// - Returns: An array of the most frequently occurring values
-    /// - Throws: StatsError.emptyCollection if the collection is empty
+    /**
+     Calculate the mode(s) of the collection
+
+     - Returns: An array of the most frequently occurring values
+     - Throws: StatsError.emptyCollection if the collection is empty
+     */
     public func mode() throws -> [Double] {
         guard !isEmpty else {
             throw StatsError.emptyCollection
@@ -184,10 +196,13 @@ extension Collection where Element: BinaryFloatingPoint {
             .sorted()
     }
 
-    /// Calculate the variance of the collection
-    /// - Parameter usesSampleVariance: If true, uses n-1 denominator (sample variance). If false, uses n (population variance)
-    /// - Returns: The variance
-    /// - Throws: StatsError if the collection is empty or has insufficient data
+    /**
+     Calculate the variance of the collection
+
+     - Parameter usesSampleVariance: If true, uses n-1 denominator (sample variance). If false, uses n (population variance)
+     - Returns: The variance
+     - Throws: StatsError if the collection is empty or has insufficient data
+     */
     public func variance(usesSampleVariance: Bool = false) throws -> Double {
         guard !isEmpty else {
             throw StatsError.emptyCollection
@@ -204,10 +219,13 @@ extension Collection where Element: BinaryFloatingPoint {
         return sum / denominator
     }
 
-    /// Calculate the standard deviation of the collection
-    /// - Parameter usesSampleVariance: If true, uses n-1 denominator (sample standard deviation)
-    /// - Returns: The standard deviation
-    /// - Throws: StatsError if the collection is empty or has insufficient data
+    /**
+     Calculate the standard deviation of the collection
+
+     - Parameter usesSampleVariance: If true, uses n-1 denominator (sample standard deviation)
+     - Returns: The standard deviation
+     - Throws: StatsError if the collection is empty or has insufficient data
+     */
     public func standardDeviation(usesSampleVariance: Bool = false) throws -> Double {
         return try sqrt(variance(usesSampleVariance: usesSampleVariance))
     }

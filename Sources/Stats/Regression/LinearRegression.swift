@@ -37,12 +37,15 @@ public struct LinearRegression: Sendable {
 }
 
 extension LinearRegression {
-    /// Fit a linear regression model to data
-    /// - Parameters:
-    ///   - x: The independent variable values
-    ///   - y: The dependent variable values
-    /// - Returns: A fitted LinearRegression model
-    /// - Throws: StatsError if collections are empty, have different lengths, or x has zero variance
+    /**
+     Fit a linear regression model to data
+
+     - Parameters:
+       - x: The independent variable values
+       - y: The dependent variable values
+     - Returns: A fitted LinearRegression model
+     - Throws: StatsError if collections are empty, have different lengths, or x has zero variance
+     */
     public static func fit<C1: Collection, C2: Collection>(
         x: C1,
         y: C2
@@ -97,11 +100,14 @@ extension LinearRegression {
         )
     }
 
-    /// Calculate residuals (errors) for the regression
-    /// - Parameters:
-    ///   - x: The independent variable values
-    ///   - y: The actual dependent variable values
-    /// - Returns: The residuals (y - predicted)
+    /**
+     Calculate residuals (errors) for the regression
+
+     - Parameters:
+       - x: The independent variable values
+       - y: The actual dependent variable values
+     - Returns: The residuals (y - predicted)
+     */
     public func residuals<C1: Collection, C2: Collection>(
         x: C1,
         y: C2
@@ -114,11 +120,14 @@ extension LinearRegression {
         }
     }
 
-    /// Calculate the mean squared error (MSE)
-    /// - Parameters:
-    ///   - x: The independent variable values
-    ///   - y: The actual dependent variable values
-    /// - Returns: The mean squared error
+    /**
+     Calculate the mean squared error (MSE)
+
+     - Parameters:
+       - x: The independent variable values
+       - y: The actual dependent variable values
+     - Returns: The mean squared error
+     */
     public func meanSquaredError<C1: Collection, C2: Collection>(
         x: C1,
         y: C2
@@ -128,11 +137,14 @@ extension LinearRegression {
         return squaredErrors.reduce(0, +) / Double(residuals.count)
     }
 
-    /// Calculate the root mean squared error (RMSE)
-    /// - Parameters:
-    ///   - x: The independent variable values
-    ///   - y: The actual dependent variable values
-    /// - Returns: The root mean squared error
+    /**
+     Calculate the root mean squared error (RMSE)
+
+     - Parameters:
+       - x: The independent variable values
+       - y: The actual dependent variable values
+     - Returns: The root mean squared error
+     */
     public func rootMeanSquaredError<C1: Collection, C2: Collection>(
         x: C1,
         y: C2

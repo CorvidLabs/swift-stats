@@ -20,12 +20,15 @@ public struct UniformDistribution: Distribution {
 
     private let randomSource: RandomSource
 
-    /// Initialize a uniform distribution
-    /// - Parameters:
-    ///   - lowerBound: The lower bound of the distribution
-    ///   - upperBound: The upper bound of the distribution
-    ///   - randomSource: Optional random source for reproducible sampling
-    /// - Throws: StatsError if lowerBound >= upperBound
+    /**
+     Initialize a uniform distribution
+
+     - Parameters:
+       - lowerBound: The lower bound of the distribution
+       - upperBound: The upper bound of the distribution
+       - randomSource: Optional random source for reproducible sampling
+     - Throws: StatsError if lowerBound >= upperBound
+     */
     public init(
         lowerBound: Double = 0,
         upperBound: Double = 1,
@@ -39,9 +42,12 @@ public struct UniformDistribution: Distribution {
         self.randomSource = randomSource ?? RandomSource()
     }
 
-    /// Calculate the probability density function (PDF) at a given value
-    /// - Parameter x: The value at which to calculate the PDF
-    /// - Returns: The probability density at x (1/(b-a) if x in [a,b], 0 otherwise)
+    /**
+     Calculate the probability density function (PDF) at a given value
+
+     - Parameter x: The value at which to calculate the PDF
+     - Returns: The probability density at x (1/(b-a) if x in [a,b], 0 otherwise)
+     */
     public func pdf(_ x: Double) -> Double {
         if x >= lowerBound && x <= upperBound {
             return 1 / (upperBound - lowerBound)
@@ -49,9 +55,12 @@ public struct UniformDistribution: Distribution {
         return 0
     }
 
-    /// Calculate the cumulative distribution function (CDF) at a given value
-    /// - Parameter x: The value at which to calculate the CDF
-    /// - Returns: The probability that a random variable is less than or equal to x
+    /**
+     Calculate the cumulative distribution function (CDF) at a given value
+
+     - Parameter x: The value at which to calculate the CDF
+     - Returns: The probability that a random variable is less than or equal to x
+     */
     public func cdf(_ x: Double) -> Double {
         if x < lowerBound {
             return 0

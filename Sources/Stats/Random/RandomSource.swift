@@ -21,16 +21,22 @@ public final class RandomSource: @unchecked Sendable {
         Double(generator.next()) / Double(UInt64.max)
     }
 
-    /// Generate a random Double in a specified range
-    /// - Parameter range: The range for the random value
-    /// - Returns: A random Double value in the specified range
+    /**
+     Generate a random Double in a specified range
+
+     - Parameter range: The range for the random value
+     - Returns: A random Double value in the specified range
+     */
     public func next(in range: ClosedRange<Double>) -> Double {
         range.lowerBound + next() * (range.upperBound - range.lowerBound)
     }
 
-    /// Generate a random integer in a specified range
-    /// - Parameter range: The range for the random value
-    /// - Returns: A random Int value in the specified range
+    /**
+     Generate a random integer in a specified range
+
+     - Parameter range: The range for the random value
+     - Returns: A random Int value in the specified range
+     */
     public func next(in range: ClosedRange<Int>) -> Int {
         let rangeSize = range.upperBound - range.lowerBound + 1
         let randomValue = Int(generator.next() % UInt64(rangeSize))
@@ -46,18 +52,24 @@ public final class RandomSource: @unchecked Sendable {
         return sqrt(-2 * log(u1)) * cos(2 * .pi * u2)
     }
 
-    /// Generate a random value from a normal distribution with specified parameters
-    /// - Parameters:
-    ///   - mean: The mean of the distribution
-    ///   - standardDeviation: The standard deviation of the distribution
-    /// - Returns: A random value from the normal distribution
+    /**
+     Generate a random value from a normal distribution with specified parameters
+
+     - Parameters:
+       - mean: The mean of the distribution
+       - standardDeviation: The standard deviation of the distribution
+     - Returns: A random value from the normal distribution
+     */
     public func nextNormal(mean: Double, standardDeviation: Double) -> Double {
         mean + standardDeviation * nextNormal()
     }
 
-    /// Generate a random value from an exponential distribution
-    /// - Parameter lambda: The rate parameter (lambda > 0)
-    /// - Returns: A random value from the exponential distribution
+    /**
+     Generate a random value from an exponential distribution
+
+     - Parameter lambda: The rate parameter (lambda > 0)
+     - Returns: A random value from the exponential distribution
+     */
     public func nextExponential(lambda: Double) -> Double {
         -log(1 - next()) / lambda
     }

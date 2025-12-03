@@ -17,11 +17,14 @@ public struct PoissonDistribution: Distribution {
 
     private let randomSource: RandomSource
 
-    /// Initialize a Poisson distribution
-    /// - Parameters:
-    ///   - lambda: The rate parameter (must be positive)
-    ///   - randomSource: Optional random source for reproducible sampling
-    /// - Throws: StatsError if lambda is not positive
+    /**
+     Initialize a Poisson distribution
+
+     - Parameters:
+       - lambda: The rate parameter (must be positive)
+       - randomSource: Optional random source for reproducible sampling
+     - Throws: StatsError if lambda is not positive
+     */
     public init(
         lambda: Double,
         randomSource: RandomSource? = nil
@@ -33,26 +36,36 @@ public struct PoissonDistribution: Distribution {
         self.randomSource = randomSource ?? RandomSource()
     }
 
-    /// Calculate the probability mass function (PMF) at a given value
-    /// Note: For discrete distributions, this is analogous to PDF
-    /// - Parameter k: The value (number of events, must be non-negative integer)
-    /// - Returns: The probability of exactly k events
+    /**
+     Calculate the probability mass function (PMF) at a given value
+
+     Note: For discrete distributions, this is analogous to PDF
+
+     - Parameter k: The value (number of events, must be non-negative integer)
+     - Returns: The probability of exactly k events
+     */
     public func pmf(_ k: Int) -> Double {
         guard k >= 0 else { return 0 }
         return (pow(lambda, Double(k)) * exp(-lambda)) / Double(factorial(k))
     }
 
-    /// Calculate the probability density function (PDF) at a given value
-    /// - Parameter x: The value at which to calculate the PDF
-    /// - Returns: The probability density at x (treats x as integer)
+    /**
+     Calculate the probability density function (PDF) at a given value
+
+     - Parameter x: The value at which to calculate the PDF
+     - Returns: The probability density at x (treats x as integer)
+     */
     public func pdf(_ x: Double) -> Double {
         let k = Int(x.rounded())
         return pmf(k)
     }
 
-    /// Calculate the cumulative distribution function (CDF) at a given value
-    /// - Parameter x: The value at which to calculate the CDF
-    /// - Returns: The probability that a random variable is less than or equal to x
+    /**
+     Calculate the cumulative distribution function (CDF) at a given value
+
+     - Parameter x: The value at which to calculate the CDF
+     - Returns: The probability that a random variable is less than or equal to x
+     */
     public func cdf(_ x: Double) -> Double {
         guard x >= 0 else { return 0 }
         let k = Int(x)
@@ -63,9 +76,13 @@ public struct PoissonDistribution: Distribution {
         return sum
     }
 
-    /// Generate a random sample from the distribution
-    /// Uses Knuth's algorithm for small λ, or normal approximation for large λ
-    /// - Returns: A random integer value from the distribution
+    /**
+     Generate a random sample from the distribution
+
+     Uses Knuth's algorithm for small λ, or normal approximation for large λ
+
+     - Returns: A random integer value from the distribution
+     */
     public func sample() -> Double {
         if lambda < 30 {
             // Knuth's algorithm for small lambda
@@ -86,9 +103,12 @@ public struct PoissonDistribution: Distribution {
         }
     }
 
-    /// Calculate the factorial of a non-negative integer
-    /// - Parameter n: The integer
-    /// - Returns: n!
+    /**
+     Calculate the factorial of a non-negative integer
+
+     - Parameter n: The integer
+     - Returns: n!
+     */
     private func factorial(_ n: Int) -> Int {
         guard n > 0 else { return 1 }
         return (1...n).reduce(1, *)

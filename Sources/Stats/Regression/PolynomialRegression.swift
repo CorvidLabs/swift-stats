@@ -36,13 +36,16 @@ public struct PolynomialRegression: Sendable {
 }
 
 extension PolynomialRegression {
-    /// Fit a polynomial regression model to data
-    /// - Parameters:
-    ///   - x: The independent variable values
-    ///   - y: The dependent variable values
-    ///   - degree: The degree of the polynomial
-    /// - Returns: A fitted PolynomialRegression model
-    /// - Throws: StatsError if collections are empty, have different lengths, insufficient data, or matrix is singular
+    /**
+     Fit a polynomial regression model to data
+
+     - Parameters:
+       - x: The independent variable values
+       - y: The dependent variable values
+       - degree: The degree of the polynomial
+     - Returns: A fitted PolynomialRegression model
+     - Throws: StatsError if collections are empty, have different lengths, insufficient data, or matrix is singular
+     */
     public static func fit<C1: Collection, C2: Collection>(
         x: C1,
         y: C2,
@@ -108,11 +111,14 @@ extension PolynomialRegression {
         )
     }
 
-    /// Calculate residuals (errors) for the regression
-    /// - Parameters:
-    ///   - x: The independent variable values
-    ///   - y: The actual dependent variable values
-    /// - Returns: The residuals (y - predicted)
+    /**
+     Calculate residuals (errors) for the regression
+
+     - Parameters:
+       - x: The independent variable values
+       - y: The actual dependent variable values
+     - Returns: The residuals (y - predicted)
+     */
     public func residuals<C1: Collection, C2: Collection>(
         x: C1,
         y: C2

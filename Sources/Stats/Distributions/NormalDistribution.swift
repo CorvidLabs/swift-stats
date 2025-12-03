@@ -15,12 +15,15 @@ public struct NormalDistribution: Distribution {
 
     private let randomSource: RandomSource
 
-    /// Initialize a normal distribution
-    /// - Parameters:
-    ///   - mean: The mean of the distribution
-    ///   - standardDeviation: The standard deviation of the distribution (must be positive)
-    ///   - randomSource: Optional random source for reproducible sampling
-    /// - Throws: StatsError if standardDeviation is not positive
+    /**
+     Initialize a normal distribution
+
+     - Parameters:
+       - mean: The mean of the distribution
+       - standardDeviation: The standard deviation of the distribution (must be positive)
+       - randomSource: Optional random source for reproducible sampling
+     - Throws: StatsError if standardDeviation is not positive
+     */
     public init(
         mean: Double = 0,
         standardDeviation: Double = 1,
@@ -34,41 +37,58 @@ public struct NormalDistribution: Distribution {
         self.randomSource = randomSource ?? RandomSource()
     }
 
-    /// Calculate the probability density function (PDF) at a given value
-    /// - Parameter x: The value at which to calculate the PDF
-    /// - Returns: The probability density at x
+    /**
+     Calculate the probability density function (PDF) at a given value
+
+     - Parameter x: The value at which to calculate the PDF
+     - Returns: The probability density at x
+     */
     public func pdf(_ x: Double) -> Double {
         let coefficient = 1 / (standardDeviation * sqrt(2 * .pi))
         let exponent = -pow(x - mean, 2) / (2 * variance)
         return coefficient * exp(exponent)
     }
 
-    /// Calculate the cumulative distribution function (CDF) at a given value
-    /// Uses the error function approximation
-    /// - Parameter x: The value at which to calculate the CDF
-    /// - Returns: The probability that a random variable is less than or equal to x
+    /**
+     Calculate the cumulative distribution function (CDF) at a given value
+
+     Uses the error function approximation
+
+     - Parameter x: The value at which to calculate the CDF
+     - Returns: The probability that a random variable is less than or equal to x
+     */
     public func cdf(_ x: Double) -> Double {
         let z = (x - mean) / standardDeviation
         return 0.5 * (1 + erf(z / sqrt(2)))
     }
 
-    /// Generate a random sample from the distribution
-    /// Uses the Box-Muller transform
-    /// - Returns: A random value from the distribution
+    /**
+     Generate a random sample from the distribution
+
+     Uses the Box-Muller transform
+
+     - Returns: A random value from the distribution
+     */
     public func sample() -> Double {
         randomSource.nextNormal(mean: mean, standardDeviation: standardDeviation)
     }
 
-    /// Calculate the z-score for a given value
-    /// - Parameter x: The value
-    /// - Returns: The z-score (number of standard deviations from the mean)
+    /**
+     Calculate the z-score for a given value
+
+     - Parameter x: The value
+     - Returns: The z-score (number of standard deviations from the mean)
+     */
     public func zScore(of x: Double) -> Double {
         (x - mean) / standardDeviation
     }
 
-    /// Calculate the value corresponding to a given z-score
-    /// - Parameter z: The z-score
-    /// - Returns: The value
+    /**
+     Calculate the value corresponding to a given z-score
+
+     - Parameter z: The z-score
+     - Returns: The value
+     */
     public func value(forZScore z: Double) -> Double {
         mean + z * standardDeviation
     }

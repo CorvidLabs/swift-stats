@@ -52,12 +52,15 @@ public struct Histogram: Sendable {
 }
 
 extension Histogram {
-    /// Create a histogram from a collection of values with a specified number of bins
-    /// - Parameters:
-    ///   - values: The collection of numeric values
-    ///   - binCount: The number of bins to create
-    /// - Returns: A histogram with the specified number of bins
-    /// - Throws: StatsError if the collection is empty or binCount is invalid
+    /**
+     Create a histogram from a collection of values with a specified number of bins
+
+     - Parameters:
+       - values: The collection of numeric values
+       - binCount: The number of bins to create
+     - Returns: A histogram with the specified number of bins
+     - Throws: StatsError if the collection is empty or binCount is invalid
+     */
     public static func create<C: Collection>(
         from values: C,
         binCount: Int
@@ -108,12 +111,15 @@ extension Histogram {
         return Histogram(bins: bins, totalCount: totalCount)
     }
 
-    /// Create a histogram from a collection of values with custom bin edges
-    /// - Parameters:
-    ///   - values: The collection of numeric values
-    ///   - binEdges: The edges of the bins (must have at least 2 values)
-    /// - Returns: A histogram with bins defined by the edges
-    /// - Throws: StatsError if the collection is empty or binEdges is invalid
+    /**
+     Create a histogram from a collection of values with custom bin edges
+
+     - Parameters:
+       - values: The collection of numeric values
+       - binEdges: The edges of the bins (must have at least 2 values)
+     - Returns: A histogram with bins defined by the edges
+     - Throws: StatsError if the collection is empty or binEdges is invalid
+     */
     public static func create<C: Collection>(
         from values: C,
         binEdges: [Double]
@@ -175,18 +181,24 @@ extension Histogram {
 }
 
 extension Collection where Element: BinaryFloatingPoint {
-    /// Create a histogram with a specified number of bins
-    /// - Parameter binCount: The number of bins to create
-    /// - Returns: A histogram with the specified number of bins
-    /// - Throws: StatsError if the collection is empty or binCount is invalid
+    /**
+     Create a histogram with a specified number of bins
+
+     - Parameter binCount: The number of bins to create
+     - Returns: A histogram with the specified number of bins
+     - Throws: StatsError if the collection is empty or binCount is invalid
+     */
     public func histogram(binCount: Int) throws -> Histogram {
         try Histogram.create(from: self, binCount: binCount)
     }
 
-    /// Create a histogram with custom bin edges
-    /// - Parameter binEdges: The edges of the bins
-    /// - Returns: A histogram with bins defined by the edges
-    /// - Throws: StatsError if the collection is empty or binEdges is invalid
+    /**
+     Create a histogram with custom bin edges
+
+     - Parameter binEdges: The edges of the bins
+     - Returns: A histogram with bins defined by the edges
+     - Throws: StatsError if the collection is empty or binEdges is invalid
+     */
     public func histogram(binEdges: [Double]) throws -> Histogram {
         try Histogram.create(from: self, binEdges: binEdges)
     }
