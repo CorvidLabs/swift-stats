@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/github/license/CorvidLabs/swift-stats)](https://github.com/CorvidLabs/swift-stats/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/release/CorvidLabs/swift-stats)](https://github.com/CorvidLabs/swift-stats/releases)
 
+> **Pre-1.0 Notice**: This library is under active development. The API may change between minor versions until 1.0.
+
 A comprehensive statistical analysis library for Swift 6, featuring descriptive statistics, probability distributions, correlation analysis, and regression modeling.
 
 ## Features
