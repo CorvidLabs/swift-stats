@@ -43,9 +43,13 @@ public final class RandomSource: @unchecked Sendable {
         return range.lowerBound + randomValue
     }
 
-    /// Generate a random value from a standard normal distribution (mean=0, stddev=1)
-    /// Uses the Box-Muller transform
-    /// - Returns: A random value from the standard normal distribution
+    /**
+     Generate a random value from a standard normal distribution (mean=0, stddev=1)
+
+     Uses the Box-Muller transform
+
+     - Returns: A random value from the standard normal distribution
+     */
     public func nextNormal() -> Double {
         let u1 = next()
         let u2 = next()
