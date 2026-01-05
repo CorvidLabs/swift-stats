@@ -18,18 +18,24 @@ public struct PolynomialRegression: Sendable {
         self.rSquared = rSquared
     }
 
-    /// Predict a y value for a given x value
-    /// - Parameter x: The input value
-    /// - Returns: The predicted output value
+    /**
+     Predict a y value for a given x value
+
+     - Parameter x: The input value
+     - Returns: The predicted output value
+     */
     public func predict(_ x: Double) -> Double {
         coefficients.enumerated().reduce(0) { result, item in
             result + item.element * pow(x, Double(item.offset))
         }
     }
 
-    /// Predict y values for multiple x values
-    /// - Parameter xValues: The input values
-    /// - Returns: The predicted output values
+    /**
+     Predict y values for multiple x values
+
+     - Parameter xValues: The input values
+     - Returns: The predicted output values
+     */
     public func predict(_ xValues: [Double]) -> [Double] {
         xValues.map { predict($0) }
     }

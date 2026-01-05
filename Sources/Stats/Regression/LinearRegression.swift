@@ -8,7 +8,7 @@ public struct LinearRegression: Sendable {
     /// The y-intercept (b) of the regression line
     public let intercept: Double
 
-    /// The coefficient of determination (R²), indicating goodness of fit
+    /// The coefficient of determination (R squared), indicating goodness of fit
     public let rSquared: Double
 
     /// The Pearson correlation coefficient
@@ -21,16 +21,22 @@ public struct LinearRegression: Sendable {
         self.correlation = correlation
     }
 
-    /// Predict a y value for a given x value
-    /// - Parameter x: The input value
-    /// - Returns: The predicted output value
+    /**
+     Predict a y value for a given x value
+
+     - Parameter x: The input value
+     - Returns: The predicted output value
+     */
     public func predict(_ x: Double) -> Double {
         slope * x + intercept
     }
 
-    /// Predict y values for multiple x values
-    /// - Parameter xValues: The input values
-    /// - Returns: The predicted output values
+    /**
+     Predict y values for multiple x values
+
+     - Parameter xValues: The input values
+     - Returns: The predicted output values
+     */
     public func predict(_ xValues: [Double]) -> [Double] {
         xValues.map { predict($0) }
     }
@@ -88,7 +94,7 @@ extension LinearRegression {
         let slope = sumXY / sumX2
         let intercept = yMean - slope * xMean
 
-        // Calculate R²
+        // Calculate R squared
         let correlation = sumXY / sqrt(sumX2 * sumY2)
         let rSquared = correlation * correlation
 
