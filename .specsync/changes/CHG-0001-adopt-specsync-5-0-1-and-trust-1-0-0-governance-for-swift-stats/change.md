@@ -1,6 +1,6 @@
 ---
 id: CHG-0001-adopt-specsync-5-0-1-and-trust-1-0-0-governance-for-swift-stats
-state: draft
+state: accepted
 type: migration
 base_commit: f6b6f657701d0dc484203942ab5d631c4f363903
 ---

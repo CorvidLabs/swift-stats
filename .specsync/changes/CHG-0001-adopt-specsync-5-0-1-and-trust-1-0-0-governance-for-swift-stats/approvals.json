@@ -1,3 +1,26 @@
 {
-  "approvals": []
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783984917,
+      "digest": "0be28f9b0b4b77bf0eaa9b7f302a41a740b40aaf93797c0f2f336811fc517907",
+      "note": "Governance-only adoption definition approved; public statistical behavior remains unchanged."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985222,
+      "digest": "c86b325f31f7f8a2bda263bb9bfcc83a5b98fc1b86c0aa21f9fa480ab3d674e9",
+      "note": "Refreshed definition approval after replacing circular lifecycle checklist items and using the safe Fledge verification command."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985239,
+      "digest": "6f8f4d03eff63403fb7a3b7069404b109e0334e08cd186f474d8c3d3744784cc",
+      "note": "Closing approval after full 100 percent contract coverage and 75 passing native tests; governance-only migration complete."
+    }
+  ],
+  "reopenings": []
 }

@@ -9,5 +9,6 @@ artifact: tasks
 - [x] Install all four agents.
 - [x] Add Trust, Augur, Attest, and native Fledge verification.
 - [x] Preserve existing repository behavior and workflows.
-- [ ] Record definition approval.
-- [ ] Record verification and closing approval.
+
+Definition, verification, and closing approval are lifecycle states, not preparation tasks; they are recorded by
+SpecSync only after their corresponding gates succeed.

@@ -1,0 +1,26 @@
+{
+  "approvals": [
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985110,
+      "digest": "e1be3f978aac378a030d8e0a5d38579abd45207389ce9efca45b3d820a6964a4",
+      "note": "Definition approved after complete source/export inventory and evidence-gap review; behavior is unchanged."
+    },
+    {
+      "gate": "definition",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985170,
+      "digest": "06fc81d8bff565fc9ec8f26562d1e99ba71617d9b8d04cecc4bae737aada3f52",
+      "note": "Refreshed definition approval after replacing circular lifecycle checklist items with truthful preparation-state text."
+    },
+    {
+      "gate": "acceptance",
+      "actor": "user:0xLeif",
+      "timestamp": 1783985214,
+      "digest": "b0b87d2fa3b0f8c95c5a0f939d8a29a344d24085605e0608d25d026ca4af3f39",
+      "note": "Closing approval after strict 100 percent contract verification and 75 passing native tests; product code unchanged."
+    }
+  ],
+  "reopenings": []
+}

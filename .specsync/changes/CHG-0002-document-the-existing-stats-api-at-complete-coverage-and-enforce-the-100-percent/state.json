@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "CHG-0002-document-the-existing-stats-api-at-complete-coverage-and-enforce-the-100-percent",
+  "slug": "document-the-existing-stats-api-at-complete-coverage-and-enforce-the-100-percent",
+  "title": "Document the existing Stats API at complete coverage and enforce the 100 percent contract",
+  "description": "Document the existing Stats API at complete coverage and enforce the 100 percent contract",
+  "kind": "documentation",
+  "state": "accepted",
+  "canonical_applied": true,
+  "base_commit": "0d2aa8b8d83d825bbcd99dd1e3c4f445321da966",
+  "created_at": 1783984932,
+  "updated_at": 1783985214,
+  "affected_specs": [
+    "stats"
+  ],
+  "affected_paths": [
+    "Sources/",
+    "Tests/",
+    "specs/",
+    ".trust.toml"
+  ],
+  "no_spec_change": false,
+  "no_spec_change_rationale": null,
+  "acceptance_criteria": [
+    "One stable canonical Stats companion maps all 17 implementation files and every public export; strict SpecSync passes at 100 percent; requirements map to native evidence; all native tests and Trust pass; product code remains unchanged."
+  ],
+  "selected_artifacts": [
+    "context",
+    "docs",
+    "requirements",
+    "plan",
+    "tasks",
+    "testing"
+  ],
+  "dependencies": [],
+  "answers": {
+    "architecture_risk": "no",
+    "public_contract": "no"
+  }
+}

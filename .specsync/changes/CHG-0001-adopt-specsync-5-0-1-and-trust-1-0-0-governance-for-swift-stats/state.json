@@ -5,10 +5,11 @@
   "title": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for swift-stats",
   "description": "Adopt SpecSync 5.0.1 and Trust 1.0.0 governance for swift-stats",
   "kind": "migration",
-  "state": "draft",
+  "state": "accepted",
+  "canonical_applied": true,
   "base_commit": "f6b6f657701d0dc484203942ab5d631c4f363903",
   "created_at": 1783886361,
-  "updated_at": 1783886370,
+  "updated_at": 1783985239,
   "affected_specs": [],
   "affected_paths": [
     "Sources/",
